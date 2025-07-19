@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Project One</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Image Binding -->
+      <img v-bind:src="image.src" v-bind:alt="image.alt" />
+      <hr />
+
+      <!-- v-bind on anchor tag -->
+      <a v-bind:href="link.href" target="_blank">Visit Vue.js</a>
+      <hr />
+
+      <!-- v-text -->
+      <p v-text="text"></p>
+      <hr />
+
+      <!-- v-html -->
+      
+      <p v-html="html"></p>
+      <p v-html="html1"></p>
+      
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() { 
+
+            const image =ref({
+                src:"https://vuejs.org/images/logo.png",
+                alt:"Vue js logo "
+
+            })
+
+
+          const link = ref({
+            href: "https://vuejs.org"
+          });
+
+          const text = "This is v-text directive in VUE.JS";
+
+          const html = "<i>This is rendered with v-html (italic text)</i>";
+          
+          const html1="<b>This is bold tag</b>"
+
+          return {
+            image,
+            link,
+            text,
+            html,
+            html1
+          };
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
