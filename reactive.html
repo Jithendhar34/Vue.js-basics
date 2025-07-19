@@ -14,11 +14,11 @@
   </div>
 
   <script>
-    const { createApp, ref } = Vue;
+    const { createApp, reactive } = Vue;
 
     createApp({
       setup() {
-        const user = ref({
+        const user = reactive({
           Name: "K Jithendhar Reddy",
           age: 20,
           occupation: "Dev"
@@ -26,8 +26,10 @@
 
         function updateAge() {
           setTimeout(() => {
-            //user.age --> no need of value in usage of reactive over ref property.
-            user.value.age = 25;
+            //Difference between ref and reactive is where you dont need to place "user.value.age" here in the case of reactive
+            // if we use ref here it would be 
+            //user.value.age
+            user.age = 25;
           }, 3000); 
         }
 
