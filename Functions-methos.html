@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>Project one</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1><p>{{message()}}</p> </h1>
+           <h1> <p>{{greet()}}</p></h1>
+        </div>
+    </body>
+    <script>
+        const {createApp} = Vue;
+          createApp({
+            setup(){
+                function message(){
+                    return "hello all this is k Jithendhar reddy";
+
+                }
+                function greet(){
+                    return "Good morning this is k Jithendhar reddy";
+                }
+                return {
+                    message,
+                    greet
+
+                }
+            }
+
+          }).mount('#app')
+    </script>
+</html>
