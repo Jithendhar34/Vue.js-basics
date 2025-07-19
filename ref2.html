@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Ref Example</title>
+</head>
+<body>
+  <div id="app">
+        <h1><p>Name:{{user.Name}}</p></h1>  
+        <h1><p>Occupation:{{user.occupation}}</p></h1>
+         <h1><p>age:{{user.age}}</p></h1>
+
+
+  </div>
+
+  <script>
+  const {createApp,ref} = Vue;
+
+  createApp({
+    setup(){
+        const user=ref({
+            Name:"K Jithendhar reddy",
+            age:20,
+            occupation:"Dev"
+        });
+
+        return {
+            user 
+        }
+    }
+  }).mount('#app');
+
+  
+  </script>
+</body>
+</html>
