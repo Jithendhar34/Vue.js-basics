@@ -6,36 +6,46 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <title>Project one</title>
+        <style>
+            .box {
+                background: red;
+                width: 500px;
+                height: 400px;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
-           
-            <h1>{{user}}</h1>
-            <!-- event "v-on:click"  is a directive where when we click a button it updates the name-->
-            <div v-on:click="updatedName()">
-                Click here to change the name
+            <h1>{{ name }}</h1>
+            <div v-on:dblclick="updateName">
+                Click me !!!
             </div>
-            
+            <hr/>
+            <div class="box" v-on:mousemove="getCoord">
+                Hover me
+            </div>
+            <h1>x:{{ coord.x }}</h1>
+            <h2>y:{{ coord.y }}</h2>
         </div>
     </body>
     <script>
         const { createApp, ref } = Vue;
-         createApp({
+        createApp({
             setup(){
-                const user=ref("K jithendhar");
-
-                function updatedName(){
-                    setTimeout(()=>{
-                        user.value="K Jithendhar reddy";
-                    },1000)
+                const name = ref('Francis');
+                const coord = ref({x:0,y:0})
+                
+                function updateName(){
+                    name.value = 'Steve';
                 }
 
-                return {
-                    user,
-                    updatedName
+                function getCoord(event){
+                    coord.value.x = event.clientX;
+                    coord.value.y = event.clientY
                 }
 
+                return { name , updateName, coord, getCoord }
             }
-         }).mount('#app')
+        }).mount('#app')
     </script>
 </html>
