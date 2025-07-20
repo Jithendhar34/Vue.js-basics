@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>Project one</title>
+        <style>
+            .box {
+                background: red;
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+           
+        <form v-on:submit.prevent="formHandler">
+            <label>Name:</label>
+            <input type="text" v-model="formData.name"/>
+            <hr/>
+
+
+            <label>Last Name:</label>
+            <input type="text"   v-model="formData.last_name    ">
+            <hr/>
+
+            
+            <label>Age:</label>
+            <input type="number"   v-model="formData.age">
+            <hr/>
+
+            <input type="checkbox" id="checkbox" v-model="formData.checked"> 
+            <label>{{formData.checked}}</label>
+
+
+            <button type="submit">Submit</button>
+
+        </form>
+            
+        </div>
+    </body>
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup(){
+
+                const formData = ref({
+                    name:'',
+                    last_name:'',
+                    age:'',
+                    checked:false
+                });
+
+              
+
+                function formHandler(){
+                     console.log(formData.value);
+                }
+
+                return {
+                    formData,
+                    formHandler
+                }
+               
+            }
+        }).mount('#app')
+    </script>
+</html>
