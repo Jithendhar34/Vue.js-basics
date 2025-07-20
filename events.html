@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>Project one</title>
+    </head>
+    <body>
+        <div id="app">
+           
+            <h1>{{user}}</h1>
+            <!-- event "v-on:click"  is a directive where when we click a button it updates the name-->
+            <div v-on:click="updatedName()">
+                Click here to change the name
+            </div>
+            
+        </div>
+    </body>
+    <script>
+        const { createApp, ref } = Vue;
+         createApp({
+            setup(){
+                const user=ref("K jithendhar");
+
+                function updatedName(){
+                    setTimeout(()=>{
+                        user.value="K Jithendhar reddy";
+                    },1000)
+                }
+
+                return {
+                    user,
+                    updatedName
+                }
+
+            }
+         }).mount('#app')
+    </script>
+</html>
